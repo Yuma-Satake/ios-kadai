@@ -35,16 +35,6 @@
 			path = Kadai02;
 			sourceTree = "<group>";
 		};
-		0CDDD1CE2DD57D45006913E6 /* Kadai02Tests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Kadai02Tests;
-			sourceTree = "<group>";
-		};
-		0CDDD1D82DD57D45006913E6 /* Kadai02UITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Kadai02UITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				0CDDD1BD2DD57D42006913E6 /* Kadai02 */,
-				0CDDD1CE2DD57D45006913E6 /* Kadai02Tests */,
-				0CDDD1D82DD57D45006913E6 /* Kadai02UITests */,
 				0CDDD1BC2DD57D42006913E6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +118,6 @@
 			dependencies = (
 				0CDDD1CD2DD57D45006913E6 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				0CDDD1CE2DD57D45006913E6 /* Kadai02Tests */,
-			);
 			name = Kadai02Tests;
 			packageProductDependencies = (
 			);
@@ -152,9 +137,6 @@
 			);
 			dependencies = (
 				0CDDD1D72DD57D45006913E6 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				0CDDD1D82DD57D45006913E6 /* Kadai02UITests */,
 			);
 			name = Kadai02UITests;
 			packageProductDependencies = (
