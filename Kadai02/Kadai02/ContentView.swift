@@ -1,20 +1,10 @@
-//
-//  ContentView.swift
-//  Kadai02
-//
-//  Created by ios1a on 2025/05/15.
-//
-
 import SwiftUI
 
-/// 方向を表す列挙型
 private enum Direction: Int, CaseIterable, Identifiable {
     case left, up, down, right
 
-    // MARK: - Identifiable
     var id: Int { rawValue }
 
-    /// 方向に対応する矢印アイコン名（SFSymbols）
     var arrowImageName: String {
         switch self {
         case .left:  return "arrow.left"
@@ -24,7 +14,6 @@ private enum Direction: Int, CaseIterable, Identifiable {
         }
     }
 
-    /// 方向に対応する指アイコン名（SFSymbols）
     var fingerImageName: String {
         switch self {
         case .left:  return "hand.point.left"
@@ -34,7 +23,6 @@ private enum Direction: Int, CaseIterable, Identifiable {
         }
     }
 
-    /// ラベル（日本語）
     var labelText: String {
         switch self {
         case .left:  return "左"
@@ -44,35 +32,29 @@ private enum Direction: Int, CaseIterable, Identifiable {
         }
     }
 
-    /// 方向に対応する顔画像名（アセット）
     var faceImageName: String {
         switch self {
-        case .left:  return "left"    // left.png
-        case .up:    return "top"     // top.png
-        case .down:  return "bottom"  // bottom.png
-        case .right: return "right"   // right.png
-        }
+        case .left:  return "left"           case .up:    return "top"           case .down:  return "bottom"  
+        case .right: return "right"           }
     }
 }
 
 struct ContentView: View {
-    // MARK: - State
-    /// ランダムに決定された画像の向き（nil のときは初期状態）
     @State private var randomDirection: Direction? = nil
-    /// 結果テキスト
+    
     @State private var resultText: String = "結果・・・"
-    /// 勝利回数
+    
     @State private var winCount: Int = 0
 
     var body: some View {
         VStack(spacing: 32) {
-            // タイトル
+            
             Text("あっち向いて・・・ほい！")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
 
-            // 方向を示す画像
+            
             Group {
                 if let direction = randomDirection {
                     Image(direction.faceImageName)
@@ -81,7 +63,7 @@ struct ContentView: View {
                         .frame(width: 200, height: 200)
                         .animation(.easeInOut, value: direction)
                 } else {
-                    Image("center") // center.png
+                    Image("center") 
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 200, height: 200)
@@ -89,7 +71,7 @@ struct ContentView: View {
             }
             .padding(.vertical, 16)
 
-            // 指ボタン
+            
             HStack(spacing: 32) {
                 ForEach(Direction.allCases) { direction in
                     Button {
@@ -106,7 +88,7 @@ struct ContentView: View {
                 }
             }
 
-            // 結果表示
+            
             VStack(spacing: 8) {
                 Text(resultText)
                     .font(.title)
@@ -118,7 +100,7 @@ struct ContentView: View {
 
             Spacer()
 
-            // リセットボタン
+            
             Button {
                 reset()
             } label: {
@@ -135,14 +117,11 @@ struct ContentView: View {
         .padding()
     }
 
-    // MARK: - Game Logic
-    /// 指ボタンが押されたときの処理
+    
     private func play(selected: Direction) {
-        // 乱数で画像の向きを決定
         let generated = Direction.allCases.randomElement()!
         randomDirection = generated
 
-        // 勝敗判定
         if selected == generated {
             resultText = "勝ち！！"
             winCount += 1
@@ -151,7 +130,6 @@ struct ContentView: View {
         }
     }
 
-    /// リセット処理
     private func reset() {
         randomDirection = nil
         resultText = "結果・・・"
