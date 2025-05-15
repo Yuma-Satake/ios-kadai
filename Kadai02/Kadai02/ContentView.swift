@@ -43,6 +43,16 @@ private enum Direction: Int, CaseIterable, Identifiable {
         case .right: return "右"
         }
     }
+
+    /// 方向に対応する顔画像名（アセット）
+    var faceImageName: String {
+        switch self {
+        case .left:  return "left"    // left.png
+        case .up:    return "top"     // top.png
+        case .down:  return "bottom"  // bottom.png
+        case .right: return "right"   // right.png
+        }
+    }
 }
 
 struct ContentView: View {
@@ -65,14 +75,16 @@ struct ContentView: View {
             // 方向を示す画像
             Group {
                 if let direction = randomDirection {
-                    Image(systemName: direction.arrowImageName)
-                        .font(.system(size: 200))
-                        .foregroundStyle(.yellow)
+                    Image(direction.faceImageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200, height: 200)
                         .animation(.easeInOut, value: direction)
                 } else {
-                    Image(systemName: "face.smiling.fill")
-                        .font(.system(size: 200))
-                        .foregroundStyle(.yellow)
+                    Image("center") // center.png
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200, height: 200)
                 }
             }
             .padding(.vertical, 16)
