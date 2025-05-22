@@ -20,4 +20,16 @@ class SoundPlayer: NSObject {
             print("エラーが発生しました！")
         }
     }
+
+    let guitarData = NSDataAsset(name: "guitarSound")!.data
+    var guitarPlayer: AVAudioPlayer!
+
+    func guitarPlay() {
+        do {
+            guitarPlayer = try AVAudioPlayer(data: guitarData)
+            guitarPlayer.play()
+        } catch {
+            print("エラーが発生しました！")
+        }
+    }
 }

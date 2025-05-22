@@ -15,14 +15,24 @@ struct ContentView: View {
                 .resizable()
                 .ignoresSafeArea()
                 .scaledToFill()
-            HStack {
+            HStack(spacing: 40) {
                 Button{
                     soundPlayer.cymbalPlay()
                 } label: {
                     Image(.cymbal)
                         .resizable()
                         .scaledToFit()
+                        .frame(width: 120)
                 }               
+                
+                Button{
+                    soundPlayer.guitarPlay()
+                } label: {
+                    Image(.guitar)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 120)
+                }
             }
         }
     }
