@@ -37,13 +37,14 @@ class PianoSoundManager: NSObject {
             return
         }
         
+        // Create and configure the audio player with the data from NSDataAsset
         do {
-            // Create and configure the audio player with the data from NSDataAsset
-            pianoSound = try AVAudioPlayer(data: dataAsset.data)
+            let audioPlayer = try AVAudioPlayer(data: dataAsset.data)
+            pianoSound = audioPlayer
             pianoSound.prepareToPlay()
             pianoSound.play()
         } catch {
-            print("Error playing sound: \(error.localizedDescription)")
+            print("Error creating audio player: \(error.localizedDescription)")
         }
     }
 } 
