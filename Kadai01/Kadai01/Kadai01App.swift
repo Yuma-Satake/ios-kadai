@@ -1,4 +1,4 @@
-1//
+//
 //  Kadai01App.swift
 //  Kadai01
 //

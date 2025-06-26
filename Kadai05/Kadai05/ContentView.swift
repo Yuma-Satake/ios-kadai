@@ -18,7 +18,7 @@ struct ContentView: View {
     @State private var showingBookmarkDialog = false
     @State private var currentSearchResult: String = ""
     
-    @State private var bookmark1 = "名古屋工学院専門学校"
+    @State private var bookmark1 = "名古屋工学院専門学校1号館"
     @State private var bookmark2 = "熱田神宮"
     
     var body: some View {
